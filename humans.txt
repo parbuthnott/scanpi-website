@@ -1,0 +1,33 @@
+/* TEAM */
+	Chief: Peter Arbuthnott
+	Contact: peter.arbuthnott [at] gmail.com
+	Twitter: @hardbutnot
+	From: Oxford, UK, via Scotland
+
+/* THANKS */
+
+	Dev Aid: Katie Sant (nee portwin)
+	Twitter: @TheRealKateSant
+
+	Dev Aid: Dave Sant
+	Twitter: @notsnat
+
+	Useful: Magnus Pitt
+	Contact: magnus_pitt [at] hotmail.com
+
+	Support: Charlie Arbuthnott (nee rapple)
+	Twitter: @charlierapple
+
+	Tester: Darren Limb
+	Contact: darren_limb [at] yahoo.co.uk
+
+	Tester: Mauricio Sanchez
+	Contact: msanchez [at] tesco.net
+	
+	Random: Witness The Hotness
+	Twitter: @HackDayTesting
+
+/* SITE */
+	Last update: 2013/01/23
+	Language: English
+	IDE: Textpad, Paint.NET, 

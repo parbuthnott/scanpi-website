@@ -1,0 +1,55 @@
+body {
+   font-family: "trebuchet ms", tahoma, verdana, helvetica, sans-serif;
+   font-size: 20px;
+   border: 1px solid #fff; margin: 0px; padding: 0px;
+   color: #F55;
+   background-color: #FFF;
+}
+img { border: 0px; }
+a:link      { color: #F55; }
+a:visited   { color: #F55; }
+a:hover     { color: #023; }
+a:active    { color: #2F62AF; }
+#lhs {
+   padding: 0px;
+   margin: 0px;
+   float: left;
+   font-size: 14px;
+   font-weight: bold;
+}
+#lhs a { float: left; text-decoration: none; }
+#lhs ul { float: left; padding-top: 0px; padding-left: 15px;}
+#lhs li {
+   list-style-type: none;
+   float: left;
+   margin: 0px;
+   padding: 5px 10px;
+   color: #F55;
+   border-top: 1px solid #F55;
+   border-bottom: 2px solid #F55;
+}
+#lhs li.linkon { background-color: #F55; color: #FFF; }
+#lhs li.linkon a {  background-color: #F55; color: #FFF; }
+#lhs li:hover { background-color: #F55; color: #FFF; }
+#lhs li:hover a { text-decoration: none; background-color: #F55; color: #FFF; }
+
+#main { float: left; clear:left; padding-left: 190px; }
+.mainscan { border: 1px solid #F55; padding: 9px; }
+.mainscan:hover { background-color: #F55; color: #FFF; text-decoration: none; }
+
+.coverimage { float: left; width: 350px; }
+.tracks { float: left; }
+
+div.browseitem { float: left; clear: left; border-bottom: 2px solid #F55; border-top: 1px solid #F55; margin: 5px 0px; padding: 5px 0px; }
+div.albumcover { float: left; width: 210px; }
+div.qrcode { float: left; width: 210px; }
+div.tracklist { float: left; width: 500px; }
+div.tracklist div.albumtitle { float: left; width: 500px; }
+div.tracklist div.band { float: left; width: 500px; }
+div.tracklist ul.side { float: left; width: 250px; }
+ul.side { font-size: 12px; padding: 0px; list-style: none; float: left; margin-left: 10px; }
+ul.side li a.playlink, ul.side li a.queuelink { font-weight: bold; border: 1px solid #FFF; 
+	color: #FFF; background-color: #F55; padding: 0px 5px; text-decoration: none; }
+ul.side li a.playlink:hover, ul.side li a.queuelink:hover { color: #F55; background-color: #FFF; 
+	border: 1px solid #F55; text-decoration: none; }
+p.small { font-size: 15px; }
