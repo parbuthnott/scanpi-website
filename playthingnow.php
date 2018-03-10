@@ -4,40 +4,40 @@
    $subpagetype='scan';
    include "connect_up.php";
 
-   $rootname = 'plaything.php';
+   $rootname = 'playthingnow.php';
    include "lhs.html"; ?>
 
    <div id="main">
-      <h1>You want to play that thing.</h1>
+      <h1>You want to play that thing NOW.</h1>
       <?php
          $band = '0';
          if (isset($_GET['band'])) $band = $_GET['band'];
          if (isset($_POST['band'])) $band = $_POST['band'];
          $bandsort = '0';
-         if (isset($_GET['bandsort'])) $bandsort = urldecode($_GET['bandsort']);
-         if (isset($_POST['bandsort'])) $bandsort = urldecode($_POST['bandsort']);
+         if (isset($_GET['bandsort'])) $bandsort = $_GET['bandsort'];
+         if (isset($_POST['bandsort'])) $bandsort = $_POST['bandsort'];
          $album = '0';
-         if (isset($_GET['album'])) $album = urldecode($_GET['album']);
-         if (isset($_POST['album'])) $album = urldecode($_POST['album']);
+         if (isset($_GET['album'])) $album = $_GET['album'];
+         if (isset($_POST['album'])) $album = $_POST['album'];
          $track = '0';
-         if (isset($_GET['track'])) $track = urldecode($_GET['track']);
-         if (isset($_POST['track'])) $track = urldecode($_POST['track']);
+         if (isset($_GET['track'])) $track = $_GET['track'];
+         if (isset($_POST['track'])) $track = $_POST['track'];
 
          echo "<!-- INCOMING TRACK: $track -->";
          if ($track != '0') {
             echo "<p>Ok.... I'll Queue the track '$track' from the '$album' album by '$band'.</p>";
-            $cmd = $rootshellplayerdir."/track.sh \"".$band."\" \"".$album."\" \"".$track."\"";
+            $cmd = $rootshellplayerdir."/track.sh '".$band."' '".$album."' '".$track."'";
          } else {
             echo "<!-- INCOMING ALBUM: $album -->";
             if ($album != '0') {
                echo "<p>Ok.... I'll Queue all the tracks from the '$album' album by '$band'.</p>";
-               $cmd = $rootshellplayerdir."/album.sh \"".$band."\" \"".$album."\"";
+               $cmd = $rootshellplayerdir."/album.sh '".$band."' '".$album."'";
             } else {
                echo "<!-- INCOMING BAND: $band -->";
                echo "<!-- INCOMING BANDSORT: $bandsort -->";
                if ($band != '0') {
                   echo "<p>Ok.... I'll Queue all the tracks by '$band' (or '$bandsort'!).</p>";
-                  $cmd = $rootshellplayerdir."/band.sh \"".$band."\"";
+                  $cmd = $rootshellplayerdir."/band.sh '".$band."'";
                } else {
                   echo "<p>Confusing lack of incoming parameters?</p>";
                }

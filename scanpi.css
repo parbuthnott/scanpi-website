@@ -40,16 +40,47 @@ a:active    { color: #2F62AF; }
 .coverimage { float: left; width: 350px; }
 .tracks { float: left; }
 
+div.resultitem { float: left; clear: left; }
+div.expandable { display: none; }
+div.expanded { display: block; }
 div.browseitem { float: left; clear: left; border-bottom: 2px solid #F55; border-top: 1px solid #F55; margin: 5px 0px; padding: 5px 0px; }
 div.albumcover { float: left; width: 210px; }
 div.qrcode { float: left; width: 210px; }
 div.tracklist { float: left; width: 500px; }
 div.tracklist div.albumtitle { float: left; width: 500px; }
 div.tracklist div.band { float: left; width: 500px; }
-div.tracklist ul.side { float: left; width: 250px; }
+div.tracklist ul.side { float: left; width: 450px; }
+
+div.big_butt { 
+   font-size: 55px; 
+   border: 1px solid #F55; 
+   color: #F55; 
+   background-color: #FFF; 
+   float: left; 
+   margin: 0px;
+   padding: 5px 10px;
+}
+div.bit_butts div:hover { background-color: #F55; color: #FFF; }
+div.big_butts div:hover a { text-decoration: none; background-color: #F55; color: #FFF; }
+
+div.big_butts { height: 10%; width: 100%; border-top: 1px solid #F55; float: left; clear: both; }
+div.big_butts a { float: left; text-decoration: none; }
+
+
+
 ul.side { font-size: 12px; padding: 0px; list-style: none; float: left; margin-left: 10px; }
-ul.side li a.playlink, ul.side li a.queuelink { font-weight: bold; border: 1px solid #FFF; 
-	color: #FFF; background-color: #F55; padding: 0px 5px; text-decoration: none; }
-ul.side li a.playlink:hover, ul.side li a.queuelink:hover { color: #F55; background-color: #FFF; 
-	border: 1px solid #F55; text-decoration: none; }
+ul.side li a.playlink, ul.side li a.queuelink, ul.side li a.playnowlink, ul.side li a.jplayerlink, ul.side li a.jplayeraddlink {
+   font-weight: bold; border: 1px solid #FFF; color: #FFF; background-color: #F55; padding: 0px 5px; text-decoration: none; }
+ul.side li a.playlink:hover, ul.side li a.queuelink:hover, ul.side li a.playnowlink:hover, ul.side li a.jplayerlink:hover, ul.side li a.jplayeraddlink:hover {
+   color: #F55; background-color: #FFF; border: 1px solid #F55; text-decoration: none; }
 p.small { font-size: 15px; }
+p.clean { float: left; clear: left; }
+
+#jpfloat { position: absolute; top: 20px; left: 75%; width: 150px;
+   font-size: 10px; border: 1px solid #F55; padding: 5px; }
+.demo-container ul { list-style-type: none; padding: 1px; margin: 2px 0; width: 100%; overflow: hidden; }
+.demo-container li { float: left; }
+.demo-container li a {
+   border: 1px solid #FFF; color: #FFF; background-color: #F55; padding: 0px 5px; text-decoration: none; }
+.demo-container li a:hover {
+   color: #F55; background-color: #FFF; border: 1px solid #F55; text-decoration: none; }
