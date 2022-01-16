@@ -7,7 +7,7 @@
 	$rootname = 'browse.php';
 	include "lhs.html"; ?>
 
-	<div id="main">
+	<div data-id="main" data-role="content">
 		<h1>Browse.</h1>
 
 		<?php
@@ -20,7 +20,7 @@
 			if (isset($_POST['band'])) $band = $_POST['band'];
 
 			if ($band == '0') {
-				echo "<h2>Pick a band from the list ...</h2>";
+				// echo "<h2>Pick a band from the list ...</h2>";
 				$musicFolder = opendir($rootmusicdir);
 				while (false !== ($banddir = readdir($musicFolder))) {
 					if ($banddir != "." && $banddir != "..") { // && is_dir($bands)) {
@@ -29,17 +29,9 @@
 				}
 				closedir($musicFolder);
 				natcasesort ($bands);
-				$bandnum = '0'; $dun = '0';
-				$halftotalbands = count($bands)/2;
-				echo "<!-- halftotalbands: $halftotalbands -->";
-				echo "<ul class='side'>\n";
+				echo "<ul class='side' data-role='listview' data-filter='true' data-autodividers='true' data-filter-placeholder='Filter bands/artists...'>\n";
 				foreach ($bands as $banditem) {
-					$bandnum++;
-					if ($bandnum > $halftotalbands && $dun == '0') {
-						echo "</ul><ul class='side'>\n";
-						$dun++;
-					}
-					echo "<li><a href=\"browse.php?band=".urlencode($banditem)."\" title=\"browse all by this band\">$banditem</a></li>\n";
+					echo "<li><a href='browse.php?band=".urlencode($banditem)."'>$banditem</a></li>\n";
 				}
 				echo "</ul>\n";
 			} else {
@@ -63,7 +55,7 @@
 				foreach ($albums as $cover) {
 					showBrowseItem($band, $cover);
 				}
-				echo "<p>Alternatively, just <a onclick=\"history.go(-1);\" title=\"go back\">go back</a>.</p>";
+				echo "<p>Alternatively, just <a href='#' onclick='history.go(-1);'>go back</a>.</p>";
 			}
 
 		?>

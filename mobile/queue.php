@@ -7,7 +7,7 @@
 	$rootname = 'queue.php';
 	include "lhs.html"; ?>
 
-	<div id="main">
+	<div data-id="main" data-role="content">
 		<h1>Queue.</h1>
 
 		<?php
@@ -33,15 +33,6 @@
 			if ($queueaction == "played") {
 				$played = "true";
 			}
-			if ($queueaction == "remove") {
-				$queueitem = $_GET['queueitem'];
-				$cmd = "mv ".$rootshellplayerdir."/queue/".$queueitem." ".$rootshellplayerdir."/played/";
-			}
-			if ($queueaction == "requeue") {
-				$queueitem = $_GET['queueitem'];
-				$cmd = "mv ".$rootshellplayerdir."/played/".$queueitem." ".$rootshellplayerdir."/queue/";
-				$played = "true";
-			}
 
 			if ($cmd != '0') {
 				echo "<p>about to shell_exec ($cmd)</p>";
@@ -50,19 +41,18 @@
 			}
 
 		?>
-
-		<!-- p>Hmmm. Guess we better put something here that actually works soon...</p -->
+		<p>Hmmm. Guess we better put something here that actually works soon...</p>
 		<!-- p>All functionality needs access to PI - so this page needs hosting on PI?</p -->
 		<ul>
-			<!-- li>Function: Remove selected items from queue</li -->
-			<li><a href="queue.php" title="view current queue">View current queue</a>.</li>
-			<li><a href="queue.php?queueaction=played" title="view played items">View played items</a>.</li>
+			<li>Function: Remove selected items from queue</li>
+			<li><a href="queue.php">View current queue</a>.</li>
+			<li><a href="queue.php?queueaction=played">View played items</a>.</li>
 <!--
 			<li>View current queue - what happens when you arrive here...</li>
-			<li><a href="queue.php?queueaction=skip" title="skip current track">Skip</a></li>
-			<li><a href="queue.php?queueaction=exit" title="stop running player">Exit</a></li>
-			<li><a href="queue.php?queueaction=play" title="start player">Play</a></li>
-			<li><a href="queue.php?queueaction=reindex" title="reindex whole collection">Reindex</a></li>
+			<li><a href="queue.php?queueaction=skip">Skip</a></li>
+			<li><a href="queue.php?queueaction=exit">Exit</a></li>
+			<li><a href="queue.php?queueaction=play">Play</a></li>
+			<li><a href="queue.php?queueaction=reindex">Reindex</a></li>
 -->
 		</ul>
 			<?php
@@ -80,16 +70,12 @@
 						}
 					}
 					closedir($queueFolder);
+					natcasesort ($files);
 
 					if ($hassome != '0') {
-						natcasesort ($files);
-						echo "<div class='queueitem'><ul class='side'>\n";
+						echo "<div class='queueitem'><ul>\n";
 						foreach ($files as $queueitem) {
-							echo "<!-- about to read :".$rootshellplayerdir."/queue/".$queueitem." -->";
-							$filedetails = file_get_contents($rootshellplayerdir."/queue/".$queueitem);
-							$detailsarray = explode("/", $filedetails);
-							echo "<li><a class='queuelink' href=\"queue.php?queueaction=remove&amp;queueitem=".$queueitem."\" title=\"remove item from queue\">x</a> (".$queueitem.")";
-							echo " ".$detailsarray[4]." : ".$detailsarray[5]." : ".$detailsarray[6]."</li>\n";
+							echo "<li>".$queueitem."</li>\n";
 						}
 						echo "</ul></div>\n";
 					} else {
@@ -113,15 +99,12 @@
 						}
 					}
 					closedir($playedFolder);
+					natcasesort ($files);
 
 					if ($hassome != '0') {
-						natcasesort ($files);
-						echo "<div class='queueitem'><ul class='side'>\n";
+						echo "<div class='queueitem'><ul>\n";
 						foreach ($files as $queueitem) {
-							$filedetails = file_get_contents($rootshellplayerdir."/played/".$queueitem);
-							$detailsarray = explode("/", $filedetails);
-							echo "<li><a class='queuelink' href=\"queue.php?queueaction=requeue&amp;queueitem=".$queueitem."\" title=\"requeue item\">+</a> (".$queueitem.")";
-							echo " ".$detailsarray[4]." : ".$detailsarray[5]." : ".$detailsarray[6]."</li>\n";
+							echo "<li>".$queueitem."</li>\n";
 						}
 						echo "</ul></div>\n";
 					} else {

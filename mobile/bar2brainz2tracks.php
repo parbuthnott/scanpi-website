@@ -7,7 +7,7 @@
 	$rootname = 'bar2brainz2tracks.php';
 	include "lhs.html"; ?>
 
-	<div id="main">
+	<div data-id="main" data-role="content">
 		<h1>Scanned.</h1>
 
 		<?php

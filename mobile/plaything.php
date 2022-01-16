@@ -7,7 +7,7 @@
 	$rootname = 'plaything.php';
 	include "lhs.html"; ?>
 
-	<div id="main">
+	<div data-id="main" data-role="content">
 		<h1>You want to play that thing.</h1>
 		<?php
 			$band = '0';
@@ -43,15 +43,15 @@
 					}
 				}
 			}
-			echo "<!-- p>about to shell_exec ($cmd)</p -->";
+			echo "<p>about to shell_exec ($cmd)</p>";
 			$output = shell_exec($cmd." 2>&1 1> /dev/null");
 			echo "<p>output was: $output (nothing here means all went well!)</p>";
 
 			$output = shell_exec("ls -l $rootshellplayerdir/queue | wc -l");
 			echo "<p>There are now ".($output-1)." files in queue (including me!).</p>";
 		?>
-		<p>Brilliant. So what now. You want to <a href="scan.php" title="scan another">Scan another</a>?</p>
-		<p>Alternatively, just <a onclick="history.go(-1);" title="go back">go back</a>.</p>
+		<p>Brilliant. So what now. You want to <a href="scan.php">Scan another</a>?</p>
+		<p>Alternatively, just <a href="#" onclick="history.go(-1);">go back</a>.</p>
 	</div>
 
 	<?php include "foot.html"?>
