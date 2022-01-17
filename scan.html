@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml' lang='en' xml:lang='en'>
+<head>
+    <meta name="author" content="Peter Arbuthnott for SCANPI"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv='Content-type' content='text/html;charset=UTF-8'/>
+    <title>SCANPI - Barcode Scan to MPG123 on Pi - SCAN</title>
+    <link rel='stylesheet' href='scanpi.css' type='text/css'/>
+    <link rel="shortcut icon" href="favicon.ico"/>
+</head>
+<body>
+
+<div id="lhs">
+    <a href="index.html" title="home"><img src="scanpi_logo_175x115.jpg" alt="SCANPI logo" title="SCANPI logo"/></a>
+    <ul>
+        <li title="home"><a href="index.html">Home</a></li>
+        <li class='linkon' title="scan"><a href="scan.html">Scan</a></li>
+        <li title="browse"><a href="browse.html">Browse</a></li>
+        <li title="queue"><a href="queue.html">Queue</a></li>
+    </ul>
+</div>
+
+<div id="main">
+    <h1>Scan.</h1>
+    <p>ScanPI has successfully utilised both pic2shop and xzing scanning apps - available from all good app stores.</p>
+    <p>The returning barcode from those apps needs to be pointed to the bar2brainz2tracks.php function.</p>
+    <p>That function extracts the barcode and fires an API call at the music brainz website for an artist and album
+        details
+        and then looks that up on your local device to allow you to play it.</p>
+
+    <!--
+    p><a class="mainscan" href="pic2shop://scan?callback=http%3A%2F%2Fwww.scanpi.co.uk%2Fscanpi%2Fbar2brainz2tracks.php%3Fbarcode%3D%7BCODE%7D" title="scan using pic2shop">SCAN [pic2shop]</a></p>
+    <p><a class="mainscan" href="http://zxing.appspot.com/scan?ret=http%3A%2F%2Fwww.scanpi.co.uk%2Fscanpi%2Fbar2brainz2tracks.php%3Fbarcode%3D%7BCODE%7D" title="scan using zxing">SCAN [zxing]</a></p>
+    <p></p>
+    <p><a href='bar2brainz2tracks.php?barcode=731455003420'>test ABBA - Waterloo / 731455003420</a></p>
+    <p><a href='bar2brainz2tracks.php?barcode=5018766962482'>test Pavement - Brighten the corners / 5018766962482</a></p>
+    <p><a href='bar2brainz2tracks.php?barcode=scanpi://Tapes/Stone Roses Plus'>test scanpi://Tapes/Stone Roses Plus</a></p>
+    <p><a href='bar2brainz2tracks.php?barcode=scanpi://Boogie Down Productions/By All Means Necessary'>test scanpi://Boogie Down Productions/By All Means Necessary</a></p
+    -->
+</div>
+
+</body>
+</html>

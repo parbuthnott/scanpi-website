@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml' lang='en' xml:lang='en'>
+<head>
+	<meta name="author" content="Peter Arbuthnott for SCANPI"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta http-equiv='Content-type' content='text/html;charset=UTF-8'/>
+	<title>SCANPI - Barcode Scan to MPG123 on Pi - BROWSE</title>
+	<link rel='stylesheet' href='scanpi.css' type='text/css'/>
+	<link rel="shortcut icon" href="favicon.ico"/>
+</head>
+<body>
+
+<div id="lhs">
+	<a href="index.html" title="home"><img src="scanpi_logo_175x115.jpg" alt="SCANPI logo" title="SCANPI logo"/></a>
+	<ul>
+		<li title="home"><a href="index.html">Home</a></li>
+		<li title="scan"><a href="scan.html">Scan</a></li>
+		<li class='linkon' title="browse"><a href="browse.html">Browse</a></li>
+		<li title="queue"><a href="queue.html">Queue</a></li>
+	</ul>
+</div>
+
+<div id="main">
+    <h1>Browse.</h1>
+
+    <code>
+        // #extension# View historical playing?
+        // #option# use mbrainz track listing & hope that they match the PI version?
+        // #option# use mbrainz track listing then Jukebox (or similar) library function?
+
+        $band = '0';
+        if (isset($_GET['band'])) $band = $_GET['band'];
+        if (isset($_POST['band'])) $band = $_POST['band'];
+
+        if ($band == '0') {
+            echo "&lt;h2>Pick a band from the list ...&lt;/h2>";
+            $musicFolder = opendir($rootmusicdir);
+            while (false !== ($banddir = readdir($musicFolder))) {
+                if ($banddir != "." && $banddir != "..") { // && is_dir($bands)) {
+                    $bands[] = $banddir;
+                }
+            }
+            closedir($musicFolder);
+            natcasesort ($bands);
+            $bandnum = '0'; $dun = '0';
+            $halftotalbands = count($bands)/2;
+            echo "&lt;!-- halftotalbands: $halftotalbands -->";
+            echo "&lt;ul class='side'>\n";
+            foreach ($bands as $banditem) {
+                $bandnum++;
+                if ($bandnum > $halftotalbands && $dun == '0') {
+                    echo "&lt;/ul>&lt;ul class='side'>\n";
+                    $dun++;
+                }
+                echo "&lt;li>&lt;a href=\"browse.php?band=".urlencode($banditem)."\" title=\"browse all by this band\">$banditem&lt;/a>&lt;/li>\n";
+            }
+            echo "&lt;/ul>\n";
+        } else {
+            echo "&lt;h2>Band: $band&lt;/h2>";
+            $bandFolder = opendir($rootmusicdir."/".$band);
+            while (false !== ($dir = readdir($bandFolder))) {
+                echo "&lt;!-- looking at : ".$rootmusicdir."/".$band."/".$dir." -->";
+                if (is_dir($rootmusicdir."/".$band."/".$dir) && $dir != "." && $dir != "..") {
+                    echo "&lt;!-- isdir : ".$dir." -->";
+                    if ($albumFolder = opendir($rootmusicdir."/".$band."/".$dir)) {
+                        echo "&lt;!-- opened : ".$rootmusicdir."/".$band."/".$dir." -->";
+                        $albums[] = $dir;
+                        closedir($albumFolder);
+                    } else {
+                        echo "&lt;!-- cant read dir: ".$dir." -->";
+                    }
+                }
+            }
+            closedir($bandFolder);
+
+            foreach ($albums as $cover) {
+                showBrowseItem($band, $cover);
+            }
+            echo "&lt;p>Alternatively, just &lt;a onclick=\"history.go(-1);\" title=\"go back\">go back&lt;/a>.&lt;/p>";
+        }
+    </code>
+</div>
+
+</body>
+</html>

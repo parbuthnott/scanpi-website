@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="slidy">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/slidy/slidy.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
